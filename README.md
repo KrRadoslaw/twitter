@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+# Decentralized Twitter-ish website
+## A simple skill-testing project
+(Tested on Windows 10)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Capabilities
 
-## Available Scripts
+- Posting
+- Editing posts (within ~10 minutes of posting them)
+- Replying to others' posts
+- Deleting posts
+- Account registering (with ID) system
+- Liking posts
+- Showing all posts or single topics
+- User interaction with the website through Ethers and Metamask
+- Deploying and using smart contracts
+- Using React in TypeScript
 
-In the project directory, you can run:
+## Contents
 
-### `npm start`
+The project includes, among others:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React](https://react.dev/) - Creating graphical interfaces for web pages.
+- [TypeScript](https://www.typescriptlang.org/) A programming language as a superset of JS with a focus on typing.
+- [Ganache](https://trufflesuite.com/ganache/) - Testing on a local test blockchain network.
+- [Bootstrap](https://getbootstrap.com/) - Styling the graphical interface. 
+- [Truffle](https://trufflesuite.com/) - Designing, compiling, and deploying smart contracts to the network.
+- [Ethers](https://ethers.org/) - Interaction of code with the blockchain.
+- [Metamask](https://metamask.io/) - Easy control over wallets, transactions, and interaction between users and websites using the blockchain.
+- [Visual Studio Code](https://code.visualstudio.com/) - Development environment.
+- [NPM](https://breakdance.github.io/breakdance/) - Package manager.
+- [GitHub](https://github.com/) - A service for managing repositories.
+- [Git](https://git-scm.com/) - A distributed version control system.
+- [FontAwesome](https://fontawesome.com/) - An internet's icon library and toolkit. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Choose a location on your disk where you want to install the project. Open the terminal, type `cmd`, and navigate to that location:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+cd <project_location>
+```
 
-### `npm run build`
+### Unpacking the Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Download the project from the website and then unpack it into the folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Install packages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+install the necessary packages:
 
-### `npm run eject`
+```sh
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Setting Up the Network and Contracts
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Run Ganache
+To make the project work correctly, you need to run a test network and deploy the Twitter contract:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+ganache
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Note: Ganache generates a different mnemonic with each run. Wallets generated from this mnemonic have 100 ETH by default.
 
-## Learn More
+Now, you need to control those wallets.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For security reasons, I won't provide a tutorial on how to transfer the mnemonic from Ganache to Metamask or run Ganache with a Metamask mnemonic because it may result in loss of funds. Instead, we'll choose the safest option: transferring the private key from a randomly generated address in Ganache to Metamask. Look at Ganache and copy the private key of the first randomly generated wallet, then import that account into Metamask and paste the private key. You should see a balance of 100 ETH. You'll need to repeat this process each time you reset Ganache. If you want to avoid repetition, set Metamask and Ganache to use a shared mnemonic, but do this at your own risk, as it may involve potential losses. The first account on the Ganache list is the one that will perform transactions. The first transaction will be deploying the calculator to the network, and subsequent ones will be mathematical operations.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deploying the Calculator to Ganache
+
+```sh
+truffle migrate --network development
+```
+
+## Running the Website Server
+
+Open a new terminal and navigate to the project directory:
+
+```sh
+npm start
+```
+
+The project should work. Connect your Metamask wallet to the website. You can now test the website. 
+
+## License
+
+MIT
