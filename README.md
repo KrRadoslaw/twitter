@@ -65,9 +65,9 @@ Note: Ganache generates a different mnemonic with each run. Wallets generated fr
 
 Now, you need to control those wallets.
 
-For security reasons, I won't provide a tutorial on how to transfer the mnemonic from Ganache to Metamask or run Ganache with a Metamask mnemonic because it may result in loss of funds. Instead, we'll choose the safest option: transferring the private key from a randomly generated address in Ganache to Metamask. Look at Ganache and copy the private key of the first randomly generated wallet, then import that account into Metamask and paste the private key. You should see a balance of 100 ETH. You'll need to repeat this process each time you reset Ganache. If you want to avoid repetition, set Metamask and Ganache to use a shared mnemonic, but do this at your own risk, as it may involve potential losses. The first account on the Ganache list is the one that will perform transactions. The first transaction will be deploying the calculator to the network, and subsequent ones will be mathematical operations.
+For security reasons, I won't provide a tutorial on how to transfer the mnemonic from Ganache to Metamask or run Ganache with a Metamask mnemonic because it may result in loss of funds. Instead, we'll choose the safest option: transferring the private key from a randomly generated address in Ganache to Metamask. Look at Ganache and copy the private key of the first randomly generated wallet, then import that account into Metamask and paste the private key. You should see a balance of 100 ETH. You'll need to repeat this process each time you reset Ganache. If you want to avoid repetition, set Metamask and Ganache to use a shared mnemonic, but do this at your own risk, as it may involve potential losses. The first account on the Ganache list is the one that will perform transactions. The first transaction will be deploying the contract to the network, and subsequent ones will be mathematical operations.
 
-### Deploying the Calculator to Ganache
+### Deploying the contract to Ganache
 
 ```sh
 truffle migrate --network development
